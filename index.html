@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeTrade Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            primary: {
+              light: '#2563eb',
+              dark: '#93c5fd'
+            }
+          },
+          boxShadow: {
+            neon: '0 0 10px #3b82f6, 0 0 20px #3b82f6',
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+      border-color: #3b82f6;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FSL8NN7QLW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FSL8NN7QLW');
+</script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen transition-colors">
+
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 shadow p-4 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
+    <!-- Brand Logo + Name -->
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <img src="favicon.jpg" alt="LuxeTrade Logo" class="w-10 h-10 rounded-full object-cover shadow-md" />
+      <h1 class="text-xl sm:text-2xl font-serif font-bold text-primary-light dark:text-primary-dark whitespace-nowrap">LuxeTrade</h1>
+    </div>
+
+    <!-- Search + Dark Mode Toggle -->
+    <div class="flex items-center gap-3 flex-grow justify-end">
+      <div class="relative w-full max-w-[180px]">
+        <input type="text" id="searchInput"  class="search-input w-full px-3 py-1 rounded border border-gray-300 dark:bg-gray-700 dark:border-gray-600" />
+        <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+          <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Toggle Switch -->
+      <label for="darkModeToggle" class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="darkModeToggle" class="sr-only">
+        <div class="w-11 h-6 bg-gray-300 rounded-full peer dark:bg-gray-700 peer-focus:ring-2 peer-focus:ring-blue-500 transition-colors"></div>
+        <div class="absolute left-1 top-1 bg-white border border-gray-300 rounded-full w-4 h-4 peer-checked:translate-x-5 transition-transform"></div>
+      </label>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-50 dark:bg-gray-800 text-center py-10 px-4">
+    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-primary-light dark:text-primary-dark">Welcome to LuxeTrade</h2>
+    <p class="max-w-2xl mx-auto mt-3 text-gray-700 dark:text-gray-300">
+      Explore quality imports handpicked for your lifestyle — at honest prices. LuxeTrade is built on trust, affordability, and putting our customers first.
+    </p>
+  </section>
+
+  <!-- Product Grid -->
+  <main class="p-6">
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Products will show here -->
+    </div>
+  </main>
+
+  <!-- Preorder Button -->
+  <button onclick="togglePreorderForm()" class="fixed bottom-5 right-5 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700">
+    Preorder
+  </button>
+
+  <!-- Preorder Modal -->
+  <div id="preorderModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-md">
+      <h2 class="text-xl font-semibold mb-4">Preorder Request</h2>
+      <form id="preorder-form" class="space-y-4">
+        <input type="text" id="name" placeholder="Your Name" required class="w-full border rounded p-2 dark:bg-gray-700" />
+        <input type="tel" id="tel" placeholder="Your Whatsapp Number" required class="w-full border rounded p-2 dark:bg-gray-700" />
+        <textarea id="message" placeholder="List the items you want to preorder, add descriptions if neccessary " class="w-full border rounded p-2 dark:bg-gray-700"></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

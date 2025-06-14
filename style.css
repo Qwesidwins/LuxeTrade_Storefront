@@ -1,0 +1,21 @@
+.search-input {
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: inherit;
+  transition: all 0.3s ease;
+  width: 120px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.search-input:focus {
+  outline: none;
+  width: 180px;
+  border-radius: 50px;
+  background-color: rgba(59, 130, 246, 0.05); /* subtle blue tint */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 2px transparent,
+              0 0 8px 2px rgba(0, 255, 255, 0.8); /* neon outer glow */
+}
